@@ -1,3 +1,4 @@
+import 'package:csw_attendance/screen/leave_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
@@ -266,41 +267,51 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                        child: Container(
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: kWhite,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blueAccent,
-                                      borderRadius: BorderRadius.circular(12)),
-                                  child: const InkWell(
-                                      child: Icon(
-                                    Icons.hotel_outlined,
-                                    color: Colors.white,
-                                  )),
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text("Izin",
-                                        style: kPoppinsMediumBold.copyWith(
-                                            color: kDarkBlue, fontSize: 14)),
-                                    Text("08.00 - 08.30 WIB",
-                                        style: kPoppinsRegularBold.copyWith(
-                                            color: kDarkBlue, fontSize: 14)),
-                                  ],
-                                ),
-                              ],
-                            )),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LeaveScreen()));
+                          },
+                          child: Container(
+                              padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: kWhite,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                        color: Colors.blueAccent,
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
+                                    child: const InkWell(
+                                        child: Icon(
+                                      Icons.hotel_outlined,
+                                      color: Colors.white,
+                                    )),
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Izin",
+                                          style: kPoppinsMediumBold.copyWith(
+                                              color: kDarkBlue, fontSize: 14)),
+                                      Text("08.00 - 08.30 WIB",
+                                          style: kPoppinsRegularBold.copyWith(
+                                              color: kDarkBlue, fontSize: 14)),
+                                    ],
+                                  ),
+                                ],
+                              )),
+                        ),
                       ),
                       const SizedBox(
                         height: 12,
