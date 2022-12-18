@@ -14,17 +14,16 @@ const Color kLighterBlue = Color(0xffc1d4f9);
 
 const Color kDarkBlue = Color(0xff19202d);
 
+const Color kLightGreen = Color(0XFF1FAFB0);
+
 const double kBorderRadius = 16.0;
 
- final kBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(kBorderRadius),
-  borderSide: BorderSide.none
- );
+final kBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(kBorderRadius),
+    borderSide: BorderSide.none);
 
-final kPoppinsBold = GoogleFonts.poppins(
-  color: kDarkBlue,
-  fontWeight: FontWeight.w700
-);
+final kPoppinsBold =
+    GoogleFonts.poppins(color: kDarkBlue, fontWeight: FontWeight.w700);
 
 final kPoppinsSemiBold =
     GoogleFonts.poppins(color: kDarkBlue, fontWeight: FontWeight.w600);
