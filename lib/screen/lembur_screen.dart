@@ -154,7 +154,7 @@ class _MyWidgetState extends State<LemburScreen> {
               padding: const EdgeInsets.all(20),
               width: MediaQuery.of(context).size.width,
               height: double.infinity,
-              color: const Color(0xffecedf2),
+              color: const Color(0xfffafafa),
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
@@ -165,7 +165,7 @@ class _MyWidgetState extends State<LemburScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 5.0),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: kLighterGreen,
                           borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,7 +227,7 @@ class _MyWidgetState extends State<LemburScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 5.0),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: kLighterPurple,
                           borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -289,7 +289,7 @@ class _MyWidgetState extends State<LemburScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 5.0),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: kLighterOrange,
                           borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -351,7 +351,7 @@ class _MyWidgetState extends State<LemburScreen> {
                       margin: const EdgeInsets.symmetric(vertical: 5.0),
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: kLighterBlue,
                           borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
