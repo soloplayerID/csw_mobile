@@ -1,3 +1,4 @@
+import 'package:csw_attendance/screen/checkin_screen.dart';
 import 'package:csw_attendance/screen/document_screen.dart';
 import 'package:csw_attendance/screen/leave_screen.dart';
 import 'package:csw_attendance/screen/lembur_screen.dart';
@@ -146,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("CSW Office",
+                                    Text("TPM Office",
                                         style: kPoppinsMediumBold.copyWith(
                                             color: kDarkBlue, fontSize: 14)),
                                     Text("08.00 - 08.30 WIB",
@@ -154,15 +155,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                             color: kDarkBlue, fontSize: 14)),
                                   ],
                                 ),
-                                Container(
-                                    padding: const EdgeInsets.all(12),
-                                    decoration: BoxDecoration(
-                                        color: kLightBlue,
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: Text('Check In',
-                                        style: kPoppinsMediumBold.copyWith(
-                                            color: kDarkBlue, fontSize: 14))),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const CheckInScreen()));
+                                  },
+                                  style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12.0),
+                                      )
+                                    )
+                                  ),
+                                  child: Text('Check In',
+                                      style: kPoppinsMediumBold.copyWith(
+                                          color: kLightWhite, fontSize: 16)),
+                                )
                               ],
                             )),
                       ),
