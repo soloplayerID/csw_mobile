@@ -164,12 +164,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 const CheckInScreen()));
                                   },
                                   style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12.0),
-                                      )
-                                    )
-                                  ),
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ))),
                                   child: Text('Check In',
                                       style: kPoppinsMediumBold.copyWith(
                                           color: kLightWhite, fontSize: 16)),
@@ -256,8 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SlipScreen()));
+                                    builder: (context) => const SlipScreen()));
                           },
                           child: Container(
                               padding: const EdgeInsets.all(20),
@@ -271,7 +269,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     padding: const EdgeInsets.all(12),
                                     decoration: BoxDecoration(
                                         color: Colors.orange,
-                                        borderRadius: BorderRadius.circular(12)),
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
                                     child: const InkWell(
                                         child: Icon(
                                       Icons.payment_rounded,
@@ -282,7 +281,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: 20,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text("Slip Gaji",
                                           style: kPoppinsMediumBold.copyWith(
@@ -299,57 +299,57 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 12,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LeaveScreen()));
-                          },
-                          child: Container(
-                              padding: const EdgeInsets.all(20),
-                              decoration: BoxDecoration(
-                                color: kWhite,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(12),
-                                    decoration: BoxDecoration(
-                                        color: Colors.blueAccent,
-                                        borderRadius:
-                                            BorderRadius.circular(12)),
-                                    child: const InkWell(
-                                        child: Icon(
-                                      Icons.hotel_outlined,
-                                      color: Colors.white,
-                                    )),
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text("Izin",
-                                          style: kPoppinsMediumBold.copyWith(
-                                              color: kDarkBlue, fontSize: 14)),
-                                      Text("08.00 - 08.30 WIB",
-                                          style: kPoppinsRegularBold.copyWith(
-                                              color: kDarkBlue, fontSize: 14)),
-                                    ],
-                                  ),
-                                ],
-                              )),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      //   child: InkWell(
+                      //     onTap: () {
+                      //       Navigator.push(
+                      //           context,
+                      //           MaterialPageRoute(
+                      //               builder: (context) => const LeaveScreen()));
+                      //     },
+                      //     child: Container(
+                      //         padding: const EdgeInsets.all(20),
+                      //         decoration: BoxDecoration(
+                      //           color: kWhite,
+                      //           borderRadius: BorderRadius.circular(12),
+                      //         ),
+                      //         child: Row(
+                      //           children: [
+                      //             Container(
+                      //               padding: const EdgeInsets.all(12),
+                      //               decoration: BoxDecoration(
+                      //                   color: Colors.blueAccent,
+                      //                   borderRadius:
+                      //                       BorderRadius.circular(12)),
+                      //               child: const InkWell(
+                      //                   child: Icon(
+                      //                 Icons.hotel_outlined,
+                      //                 color: Colors.white,
+                      //               )),
+                      //             ),
+                      //             const SizedBox(
+                      //               width: 20,
+                      //             ),
+                      //             Column(
+                      //               crossAxisAlignment:
+                      //                   CrossAxisAlignment.start,
+                      //               children: [
+                      //                 Text("Izin",
+                      //                     style: kPoppinsMediumBold.copyWith(
+                      //                         color: kDarkBlue, fontSize: 14)),
+                      //                 Text("08.00 - 08.30 WIB",
+                      //                     style: kPoppinsRegularBold.copyWith(
+                      //                         color: kDarkBlue, fontSize: 14)),
+                      //               ],
+                      //             ),
+                      //           ],
+                      //         )),
+                      //   ),
+                      // ),
+                      // const SizedBox(
+                      //   height: 12,
+                      // ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12.0),
                         child: InkWell(
