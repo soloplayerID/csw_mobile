@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'fragment/add_lembur_screen.dart';
+
 class LemburScreen extends StatefulWidget {
   const LemburScreen({super.key});
 
@@ -49,7 +51,12 @@ class _MyWidgetState extends State<LemburScreen> {
                         color: Colors.white, size: 30),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddLemburScreen()));
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(

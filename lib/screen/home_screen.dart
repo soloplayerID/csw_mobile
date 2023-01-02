@@ -1,6 +1,5 @@
-import 'package:csw_attendance/screen/checkin_screen.dart';
+import 'package:csw_attendance/screen/fragment/checkin_screen.dart';
 import 'package:csw_attendance/screen/document_screen.dart';
-import 'package:csw_attendance/screen/leave_screen.dart';
 import 'package:csw_attendance/screen/lembur_screen.dart';
 import 'package:csw_attendance/screen/slip_screen.dart';
 import 'package:flutter/material.dart';
