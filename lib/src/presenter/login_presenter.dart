@@ -23,8 +23,6 @@ class LoginPresenter implements LoginPresenterAbstract {
             _loginModel.username.text.trim(), _loginModel.password.text.trim())
         .then((value) async {
       await GetStorage().write(constants.idUser, value.id.toString());
-      await GetStorage().write(constants.email, value.email);
-      await GetStorage().write(constants.namaUser, value.name);
       Session.setId(value.id.toString());
       Session.setName(value.name.toString());
       Session.setEmail(value.email.toString());

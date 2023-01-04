@@ -8,7 +8,7 @@ import '../state/absen_widget_state.dart';
 
 abstract class AbsenWidgetPresenterAbstract {
   set view(AbsenWidgetState view) {}
-  void checkAbsen(int id){}
+  void checkAbsen(String id){}
 }
 
 class AbsenWidgetPresenter implements AbsenWidgetPresenterAbstract {
@@ -24,25 +24,25 @@ class AbsenWidgetPresenter implements AbsenWidgetPresenterAbstract {
   }
   
   @override
-  void checkAbsen(int id) {
-    // _absenWidgetModel.isloading = true;
-    // _absenWidgetState.refreshData(_absenWidgetModel);
-    print(id);
+  void checkAbsen(String id) {
+    _absenWidgetModel.isloading = true;
+    _absenWidgetState.refreshData(_absenWidgetModel);
+    // print('test $id');
 
-    // _absenServices.checkAbsen(id).then((value) {
-    //   if(value.data!.id != null){
-    //     _absenWidgetModel.absenWidget.add(AbsenWidget(
-    //       idType: value.data!.id.toString(), 
-    //       namaType: value.data!.namaType.toString()
-    //     ));
-    //   }
-    //   _absenWidgetModel.isloading = false;
-    //   _absenWidgetState.refreshData(_absenWidgetModel);
-    // }).catchError((error){
-    //   _absenWidgetState.onError(error);
-    //   _absenWidgetModel.isloading = false;
-    //   _absenWidgetState.refreshData(_absenWidgetModel);
-    // });
+    _absenServices.checkAbsen(id).then((value) {
+      if(value.data!.id != null){
+        _absenWidgetModel.absenWidget.add(AbsenWidget(
+          idType: value.data!.id.toString(), 
+          namaType: value.data!.namaType.toString()
+        ));
+      }
+      _absenWidgetModel.isloading = false;
+      _absenWidgetState.refreshData(_absenWidgetModel);
+    }).catchError((error){
+      _absenWidgetState.onError(error);
+      _absenWidgetModel.isloading = false;
+      _absenWidgetState.refreshData(_absenWidgetModel);
+    });
   }
 
 

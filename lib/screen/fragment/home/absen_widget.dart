@@ -29,7 +29,7 @@ class _AbsenWidgetState extends State<AbsenWidget> implements AbsenWidgetState {
   void initState() {
     super.initState();
     _absenWidgetPresenter.view = this;
-    // _absenWidgetPresenter.checkAbsen(GetStorage().read(constant.idUser));
+    _absenWidgetPresenter.checkAbsen(GetStorage().read(constant.idUser));
   }
 
   @override
@@ -39,7 +39,34 @@ class _AbsenWidgetState extends State<AbsenWidget> implements AbsenWidgetState {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return  _absenWidgetModel.isloading
+    ? Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+      child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 203, 204, 235),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CSW Office",
+                      style: kPoppinsMediumBold.copyWith(
+                          color: kDarkBlue, fontSize: 14)),
+                  Text("08.00 - 08.30 WIB",
+                      style: kPoppinsRegularBold.copyWith(
+                          color: kDarkBlue, fontSize: 14)),
+                ],
+              ),
+              Skeleton(height: 40, width: 90, style: SkeletonStyle.text),
+            ],
+          )),
+    )
+    : Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Container(
           padding: const EdgeInsets.all(20),
@@ -75,7 +102,7 @@ class _AbsenWidgetState extends State<AbsenWidget> implements AbsenWidgetState {
                         RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0),
                 ))),
-                child: Text('Check In',
+                child: Text('Absen ${_absenWidgetModel.absenWidget[0].namaType}',
                     style: kPoppinsMediumBold.copyWith(
                         color: kLightWhite, fontSize: 16)),
               )

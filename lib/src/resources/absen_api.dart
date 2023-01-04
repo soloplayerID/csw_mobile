@@ -10,7 +10,7 @@ import '../response/absen_check_response.dart';
 class AbsenServices {
   final Client _client = Client();
 
-  Future<AbsenCheckResponse> checkAbsen(int userId) async {
+  Future<AbsenCheckResponse> checkAbsen(String userId) async {
     try {
       final response = await _client.get(
           Uri.parse("https://Api.csw-app.com/rest/check_absen?id=$userId"));
