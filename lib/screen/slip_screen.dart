@@ -57,7 +57,7 @@ class _MyWidgetState extends State<SlipScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Hai Ilham,',
+                            'Hai Irsyad,',
                             style: kPoppinsMediumBold.copyWith(
                                 color: kLighterWhite, fontSize: 28),
                           ),
@@ -217,103 +217,121 @@ class _MyWidgetState extends State<SlipScreen> {
                     const SizedBox(
                       height: 12,
                     ),
-                    Container(
-                      height: 100,
-                      margin: const EdgeInsets.symmetric(vertical: 5.0),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: kLighterOrange,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Oktober',
-                                  style: kPoppinsMediumBold.copyWith(
-                                      color: kDarkBlue, fontSize: 18)),
-                              Container(
-                                  padding: const EdgeInsets.all(8),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const SlipDetailScreen()));
+                      },
+                      child: Container(
+                        height: 100,
+                        margin: const EdgeInsets.symmetric(vertical: 5.0),
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: kLighterOrange,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Oktober',
+                                    style: kPoppinsMediumBold.copyWith(
+                                        color: kDarkBlue, fontSize: 18)),
+                                Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                        color: kLightWhite,
+                                        borderRadius: BorderRadius.circular(12)),
+                                    child: Text('Rp. 10.000.000',
+                                        style: kPoppinsMediumBold.copyWith(
+                                            color: kDarkBlue, fontSize: 14))),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(4),
                                   decoration: BoxDecoration(
                                       color: kLightWhite,
-                                      borderRadius: BorderRadius.circular(12)),
-                                  child: Text('Rp. 10.000.000',
-                                      style: kPoppinsMediumBold.copyWith(
-                                          color: kDarkBlue, fontSize: 14))),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                    color: kLightWhite,
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: const InkWell(
-                                    child: Icon(
-                                  Icons.arrow_right,
-                                  color: kDarkBlue,
-                                )),
-                              ),
-                            ],
-                          )
-                        ],
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: const InkWell(
+                                      child: Icon(
+                                    Icons.arrow_right,
+                                    color: kDarkBlue,
+                                  )),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(
                       height: 12,
                     ),
-                    Container(
-                      height: 100,
-                      margin: const EdgeInsets.symmetric(vertical: 5.0),
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: kLighterBlue,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('November',
-                                  style: kPoppinsMediumBold.copyWith(
-                                      color: kDarkBlue, fontSize: 18)),
-                              Container(
-                                  padding: const EdgeInsets.all(8),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const SlipDetailScreen()));
+                      },
+                      child: Container(
+                        height: 100,
+                        margin: const EdgeInsets.symmetric(vertical: 5.0),
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: kLighterBlue,
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('November',
+                                    style: kPoppinsMediumBold.copyWith(
+                                        color: kDarkBlue, fontSize: 18)),
+                                Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                        color: kLightWhite,
+                                        borderRadius: BorderRadius.circular(12)),
+                                    child: Text('Rp. 10.000.000',
+                                        style: kPoppinsMediumBold.copyWith(
+                                            color: kDarkBlue, fontSize: 14))),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(4),
                                   decoration: BoxDecoration(
                                       color: kLightWhite,
-                                      borderRadius: BorderRadius.circular(12)),
-                                  child: Text('Rp. 10.000.000',
-                                      style: kPoppinsMediumBold.copyWith(
-                                          color: kDarkBlue, fontSize: 14))),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                    color: kLightWhite,
-                                    borderRadius: BorderRadius.circular(8)),
-                                child: const InkWell(
-                                    child: Icon(
-                                  Icons.arrow_right,
-                                  color: kDarkBlue,
-                                )),
-                              ),
-                            ],
-                          )
-                        ],
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: const InkWell(
+                                      child: Icon(
+                                    Icons.arrow_right,
+                                    color: kDarkBlue,
+                                  )),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],

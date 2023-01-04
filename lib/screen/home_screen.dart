@@ -1,4 +1,3 @@
-import 'package:csw_attendance/screen/fragment/checkin_screen.dart';
 import 'package:csw_attendance/screen/document_screen.dart';
 import 'package:csw_attendance/screen/lembur_screen.dart';
 import 'package:csw_attendance/screen/slip_screen.dart';
@@ -7,6 +6,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
 import '../helper/apps_style.dart';
+import '../src/resources/session.dart';
+import 'fragment/home/absen_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +17,32 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String username = "user";
   var date = DateTime.now();
+
+  _HomeScreenState() {
+    Session.checkUser().then((check) {
+      if (check) {
+      } else {
+        Navigator.pushReplacementNamed(context, "/landing");
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Session.getName().then((value) {
+      setState(() {
+        username = value!;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(
                         height: 6,
                       ),
-                      Text('Ilham Taufik',
+                      Text(username.toString(),
                           style: kPoppinsBold.copyWith(fontSize: 18)),
                     ],
                   ),
@@ -98,9 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                   padding: const EdgeInsets.all(12),
                                   height: 100,
-                                  width: 100,
-                                  child: SvgPicture.asset(
-                                      "assets/icons/welcome.svg")),
+                                  width: 130,
+                                  child: Image.asset("assets/images/attendnce.png")),
                               const SizedBox(
                                 width: 20,
                               ),
@@ -132,49 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 25,
                       ),
 
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                        child: Container(
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 203, 204, 235),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text("TPM Office",
-                                        style: kPoppinsMediumBold.copyWith(
-                                            color: kDarkBlue, fontSize: 14)),
-                                    Text("08.00 - 08.30 WIB",
-                                        style: kPoppinsRegularBold.copyWith(
-                                            color: kDarkBlue, fontSize: 14)),
-                                  ],
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const CheckInScreen()));
-                                  },
-                                  style: ButtonStyle(
-                                      shape: MaterialStateProperty.all<
-                                              RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ))),
-                                  child: Text('Check In',
-                                      style: kPoppinsMediumBold.copyWith(
-                                          color: kLightWhite, fontSize: 16)),
-                                )
-                              ],
-                            )),
-                      ),
+                      const AbsenWidget(key: Key('1'),),
 
                       const SizedBox(
                         height: 25,

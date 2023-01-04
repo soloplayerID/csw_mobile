@@ -1,8 +1,13 @@
+// ignore_for_file: avoid_print
+
+import 'package:csw_attendance/src/models/login_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../helper/apps_style.dart';
+import '../src/presenter/login_presenter.dart';
+import '../src/resources/session.dart';
+import '../src/state/login_state.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,7 +16,34 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> implements LoginState {
+  late LoginPresenter _loginPresenter;
+  // ignore: unused_field
+  late LoginModel _loginModel;
+  bool _isPasswordVisible = true;
+  final _formkey = GlobalKey<FormState>();
+  _LoginScreenState(){
+    _loginPresenter = LoginPresenter();
+    
+    Session.checkUser().then((check) {
+      if (check) {
+        Navigator.pushReplacementNamed(context, "/home");
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loginPresenter.view = this;
+    _isPasswordVisible = true;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
         scrollDirection: Axis.vertical,
         physics: const ClampingScrollPhysics(),
         child: Form(
+          key: _formkey,
           child: Container(
             padding: const EdgeInsets.only(left: 25, right: 25),
             width: MediaQuery.of(context).size.width,
@@ -62,19 +95,39 @@ class _LoginScreenState extends State<LoginScreen> {
                             )),
                         child: TextFormField(
                           validator: (value) {
-                            if (value == null) {}
+                            if (value == null) {
+                              setState(() {
+                                _loginModel.isErrorUsername = true;
+                                _loginModel.usernameError =
+                                    "Username tidak boleh kosong";
+                              });
+                            }
                             return null;
                           },
-                          onChanged: (str) {},
+                          onChanged: (str) {
+                            setState(() {
+                              _loginModel.isErrorUsername = false;
+                              _loginModel.usernameError = "";
+                            });
+                          },
+                          controller: _loginModel.username,
                           style:
                               const TextStyle(color: Colors.grey, fontSize: 14),
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
+                              icon: Icon(
+                                Icons.account_box_outlined,
+                                color: _loginModel.isErrorUsername
+                                    ? Colors.red
+                                    : const Color(0xff2D8EFF),
+                                size: 18,
+                              ),
                               hintText: "Username",
                               border: InputBorder.none,
-                              errorStyle:
-                                  TextStyle(color: Colors.red, fontSize: 9),
+                              errorText: _loginModel.usernameError,
+                              errorStyle: const TextStyle(
+                                  color: Colors.red, fontSize: 9),
                               fillColor: Colors.grey,
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                   color: Color(0xff2D8EFF), fontSize: 12)),
                         ),
                       ),
@@ -96,19 +149,44 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                   child: TextFormField(
                     validator: (value) {
-                      if (value == null) {}
+                      if (value == null) {
+                        setState(() {
+                          _loginModel.isErrorPassword = true;
+                          _loginModel.passwordError =
+                              "Password tidak boleh kosong";
+                        });
+                      }
                       return null;
                     },
-                    onChanged: (str) {},
+                    onChanged: (str) {
+                      setState(() {
+                        _loginModel.isErrorPassword = false;
+                        _loginModel.passwordError = "";
+                      });
+                    },
+                    controller: _loginModel.password,
+                    obscureText: _isPasswordVisible,
                     style: const TextStyle(color: Colors.grey, fontSize: 14),
                     decoration: InputDecoration(
+                        icon: Icon(
+                          Icons.lock,
+                          color: _loginModel.isErrorPassword
+                              ? Colors.red
+                              : const Color(0xff2D8EFF),
+                          size: 18,
+                        ),
                         suffixIcon: IconButton(
-                            icon: const Icon(
-                              Icons.visibility,
+                            icon: Icon(
+                              _isPasswordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Colors.black,
-                              size: 18,
                             ),
-                            onPressed: () {}),
+                            onPressed: () {
+                              setState(() {
+                                _isPasswordVisible = !_isPasswordVisible;
+                              });
+                            }),
                         hintText: "Password",
                         border: InputBorder.none,
                         errorStyle:
@@ -120,16 +198,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 InkWell(
                   splashColor: const Color(0xff7474BF),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                    Fluttertoast.showToast(
-                        msg: 'berhasil login :D',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 2,
-                        backgroundColor: Colors.green,
-                        textColor: Colors.white,
-                        fontSize: 15);
+                  onTap: () async {
+                    if (_formkey.currentState!.validate()) {
+                      _loginPresenter.loginClicked();
+                    }
                   },
                   child: Container(
                     margin: const EdgeInsets.only(top: 50.0),
@@ -164,4 +236,32 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     ));
   }
+
+  @override
+  void onError(String error) {
+    print(error);
+  }
+
+  @override
+  void onSuccess(String success) {
+    Fluttertoast.showToast(
+        msg: success,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Colors.amber,
+        textColor: Colors.white,
+        fontSize: 15);
+    Navigator.pushReplacementNamed(context, "/home");
+  }
+
+  @override
+  void refreshData(LoginModel loginModel) {
+    setState(() {
+      _loginModel = loginModel;
+    });
+  }
+
+  @override
+  void onMuridOff(String alert) {}
 }

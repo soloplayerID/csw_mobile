@@ -1,4 +1,4 @@
-package com.example.csw_attendance
+package com.csw_attendance
 
 import io.flutter.embedding.android.FlutterActivity
 

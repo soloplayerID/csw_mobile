@@ -138,70 +138,70 @@ class _MyWidgetState extends State<CheckInScreen> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 28),
                         child: Text(
-                            'TPM OFFICE HO, Dutamas Fatmawati no.26, Jakarta Selatan',
+                            'CSW Office, Jakarta Timur',
                             style: kPoppinsRegularBold.copyWith(
                                 color: kDarkBlue, fontSize: 12)),
                       ),
                       const SizedBox(
                         height: 30,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                color: kWhite,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: const InkWell(
-                                child: Icon(
-                              Icons.camera_alt_outlined,
-                              color: kBlue,
-                              size: 22,
-                            )),
-                          ),
-                          Container(
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  color: kLightWhite,
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: Text('Picture',
-                                  style: kPoppinsSemiBold.copyWith(
-                                      color: kDarkBlue, fontSize: 14))),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Container(
-                          height: 160,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 203, 204, 235),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  const Color.fromARGB(255, 203, 204, 235)),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const InkWell(
-                                    child: Icon(
-                                  Icons.camera_alt_outlined,
-                                  color: kBlue,
-                                  size: 28,
-                                )),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Text('Take a Picture',
-                                    style: kPoppinsMediumBold.copyWith(
-                                        color: kDarkBlue, fontSize: 14))
-                              ],
-                            ),
-                          )),
+                      // Row(
+                      //   children: [
+                      //     Container(
+                      //       padding: const EdgeInsets.all(4),
+                      //       decoration: BoxDecoration(
+                      //           color: kWhite,
+                      //           borderRadius: BorderRadius.circular(8)),
+                      //       child: const InkWell(
+                      //           child: Icon(
+                      //         Icons.camera_alt_outlined,
+                      //         color: kBlue,
+                      //         size: 22,
+                      //       )),
+                      //     ),
+                      //     Container(
+                      //         padding: const EdgeInsets.all(8),
+                      //         decoration: BoxDecoration(
+                      //             color: kLightWhite,
+                      //             borderRadius: BorderRadius.circular(8)),
+                      //         child: Text('Picture',
+                      //             style: kPoppinsSemiBold.copyWith(
+                      //                 color: kDarkBlue, fontSize: 14))),
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 8,
+                      // ),
+                      // Container(
+                      //     height: 160,
+                      //     decoration: BoxDecoration(
+                      //       color: const Color.fromARGB(255, 203, 204, 235),
+                      //       borderRadius: BorderRadius.circular(12),
+                      //     ),
+                      //     child: ElevatedButton(
+                      //       onPressed: () {},
+                      //       style: ButtonStyle(
+                      //         backgroundColor: MaterialStateProperty.all(
+                      //             const Color.fromARGB(255, 203, 204, 235)),
+                      //       ),
+                      //       child: Row(
+                      //         mainAxisAlignment: MainAxisAlignment.center,
+                      //         children: [
+                      //           const InkWell(
+                      //               child: Icon(
+                      //             Icons.camera_alt_outlined,
+                      //             color: kBlue,
+                      //             size: 28,
+                      //           )),
+                      //           const SizedBox(
+                      //             width: 8,
+                      //           ),
+                      //           Text('Take a Picture',
+                      //               style: kPoppinsMediumBold.copyWith(
+                      //                   color: kDarkBlue, fontSize: 14))
+                      //         ],
+                      //       ),
+                      //     )),
                     ],
                   ),
                 ),
