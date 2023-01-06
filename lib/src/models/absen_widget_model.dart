@@ -7,8 +7,10 @@ class AbsenWidgetModel {
 class AbsenWidget {
   String idType;
   String namaType;
+  String time;
   AbsenWidget({
     required this.idType,
     required this.namaType,
+    required this.time
   });
 }

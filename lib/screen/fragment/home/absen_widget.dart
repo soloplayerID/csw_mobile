@@ -1,6 +1,7 @@
 import 'package:csw_attendance/src/models/absen_widget_model.dart';
 import 'package:csw_attendance/src/state/absen_widget_state.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:skeleton_animation/skeleton_animation.dart';
 import '../../../helper/getStorage.dart' as constant;
@@ -83,14 +84,24 @@ class _AbsenWidgetState extends State<AbsenWidget> implements AbsenWidgetState {
                   Text("CSW Office",
                       style: kPoppinsMediumBold.copyWith(
                           color: kDarkBlue, fontSize: 14)),
-                  Text("08.00 - 08.30 WIB",
+                  Text(_absenWidgetModel.absenWidget[0].time,
                       style: kPoppinsRegularBold.copyWith(
                           color: kDarkBlue, fontSize: 14)),
                 ],
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  _absenWidgetModel.absenWidget[0].idType == '99' ?
+                  Fluttertoast.showToast(
+                    msg: 'Hari ini udah absen',
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 2,
+                    backgroundColor: Colors.amber,
+                    textColor: Colors.white,
+                    fontSize: 15
+                  )
+                  : Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
@@ -102,7 +113,7 @@ class _AbsenWidgetState extends State<AbsenWidget> implements AbsenWidgetState {
                         RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0),
                 ))),
-                child: Text('Absen ${_absenWidgetModel.absenWidget[0].namaType}',
+                child: Text(_absenWidgetModel.absenWidget[0].namaType,
                     style: kPoppinsMediumBold.copyWith(
                         color: kLightWhite, fontSize: 16)),
               )

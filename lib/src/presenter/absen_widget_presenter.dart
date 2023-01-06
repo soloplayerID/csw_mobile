@@ -33,7 +33,8 @@ class AbsenWidgetPresenter implements AbsenWidgetPresenterAbstract {
       if(value.data!.id != null){
         _absenWidgetModel.absenWidget.add(AbsenWidget(
           idType: value.data!.id.toString(), 
-          namaType: value.data!.namaType.toString()
+          namaType: value.data!.namaType.toString(),
+          time: value.data!.time.toString()
         ));
       }
       _absenWidgetModel.isloading = false;

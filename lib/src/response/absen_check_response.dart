@@ -21,13 +21,15 @@ class AbsenCheckResponse {
 
 class Data {
   String? id;
+  String? time;
   String? namaType;
   String? message;
 
-  Data({this.id, this.namaType, this.message});
+  Data({this.id, this.time, this.namaType, this.message});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    time = json['time'];
     namaType = json['nama_type'];
     message = json['message'];
   }
@@ -35,6 +37,7 @@ class Data {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
+    data['time'] = time;
     data['nama_type'] = namaType;
     data['message'] = message;
     return data;
